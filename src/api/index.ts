@@ -1,7 +1,7 @@
-import { IUsersList } from "../Interface"
+import { IUsersListApi } from "../Interface"
 
 interface IApi {
-  getUsers: (page?: number, results?: number) => Promise<IUsersList>
+  getUsers: (page?: number, results?: number) => Promise<IUsersListApi>
 }
 
 class Api implements IApi {

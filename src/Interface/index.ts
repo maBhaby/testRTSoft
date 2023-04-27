@@ -1,4 +1,4 @@
-export interface IUsersList {
+export interface IUsersListApi {
   results: IResult[]
   info: IInfo
 }

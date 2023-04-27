@@ -7,6 +7,8 @@ import {
   Tbody, 
   Td
 } from '@chakra-ui/react'
+import { observer } from 'mobx-react-lite'
+import { usersListStore } from '../../store/UserList'
 import { COLORS } from '../../helpers/const'
 
 const Theader = [
@@ -32,7 +34,7 @@ const Theader = [
   },
 ]
 
-const Table = () => {
+const Table = observer(() => {
   return (
     <TableContainer borderRadius='6px'>
       <CTable size='sm'>
@@ -46,6 +48,7 @@ const Table = () => {
           </Tr>
         </Thead>
         <Tbody bg={COLORS.WHITE}>
+
           <Tr>
             <Td>inches</Td>
             <Td>millimetres (mm)</Td>
@@ -57,6 +60,6 @@ const Table = () => {
       </CTable>
     </TableContainer>
   )
-}
+})
 
 export default Table
