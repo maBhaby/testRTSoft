@@ -1,12 +1,16 @@
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import { themeApp } from './helpers/const.ts'
+import App from './App'
+import { themeApp } from './helpers/const'
+import { RootStore } from './stores/Root'
+import { StoreProvider } from './context/StoreProvider'
 import { ChakraProvider } from '@chakra-ui/react'
 
-console.log('themeApp', themeApp);
+const rootStore = new RootStore()
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ChakraProvider theme={themeApp}>
-    <App />
+    <StoreProvider store={rootStore}>
+      <App />
+    </StoreProvider>
   </ChakraProvider>,
 )

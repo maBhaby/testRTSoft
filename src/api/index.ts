@@ -12,7 +12,7 @@ class Api implements IApi {
     this.url = url
   }
 
-  public getUsers = async (page = 1, results = 1)  => {
+  public getUsers = async (page = 1, results = 10) => {
     const res = await fetch(`${this.url}/?inc=${this.incDefault}&results=${results}&page=${page}`)
     return await res.json()
   }
