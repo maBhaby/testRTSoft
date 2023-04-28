@@ -4,11 +4,13 @@ import Tab from '../Tab'
 const tabsBtn = [
   {
     id: 0,
-    label: 'Таблица'
+    label: 'Таблица',
+    type: 'table'
   },
   {
     id: 1,
-    label: 'Карточка'
+    label: 'Карточка',
+    type: 'card'
   },
 ]
 

@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
 import { api } from './api'
 import { Box } from "@chakra-ui/react"
+import { observer } from 'mobx-react-lite'
 import Table from './components/Table'
 import Header from "./components/Header"
 
-const App = () => {
+const App = observer(() => {
   useEffect(() => {
     api.getUsers()
       .then((res) => {console.log('res', res)})
@@ -18,6 +19,6 @@ const App = () => {
       </Box>
     </Box>
   )
-}
+})
 
 export default App

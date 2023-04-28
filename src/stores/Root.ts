@@ -2,18 +2,21 @@
  * Import all your stores
  */
 //
-import { UsersStore } from "./UserList";
+import { UsersListStore } from "./UsersListStore";
 import { SpinnerStore } from "./SpinerStore";
+import { DisplayTypeStore } from "./DisplayTypeStore";
 
 /**
 * Root Store Class with
 */
 export class RootStore {
-  UsersStore: UsersStore
+  UsersListStore: UsersListStore
   SpinnerStore: SpinnerStore
+  DisplayTypeStore: DisplayTypeStore
   
   constructor () {
-    this.UsersStore = new UsersStore()
+    this.UsersListStore = new UsersListStore()
     this.SpinnerStore = new SpinnerStore()
+    this.DisplayTypeStore = new DisplayTypeStore()
   }
 }

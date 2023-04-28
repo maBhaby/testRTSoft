@@ -14,3 +14,26 @@ export const COLORS = {
   WHITE: '#FFF',
   BLUE: '#2563EB'
 }
+
+export const TABLE_HEADER = [
+  {
+    id: 0,
+    label: 'ФИО',
+  },
+  {
+    id: 1,
+    label: 'Логин',
+  },
+  {
+    id: 2,
+    label: 'Адрес',
+  },
+  {
+    id: 3,
+    label: 'Телефон',
+  },
+  {
+    id: 4,
+    label: 'E-mail',
+  },
+]

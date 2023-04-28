@@ -1,9 +1,9 @@
 import { MouseEvent } from 'react'
 import { useStores } from "./useStores";
 
-export const useUserStore = () => {
-  const { UsersStore } = useStores()
-  const { userList, findUser } = UsersStore
+export const useUsersStore = () => {
+  const { UsersListStore } = useStores()
+  const { userList, findUser } = UsersListStore
 
   const handleClick = (e:MouseEvent<HTMLTableSectionElement>): void => {
     const target = e.target as HTMLTableSectionElement

@@ -1,55 +1,25 @@
 import {
   TableContainer,
   Table as CTable,
-  Thead,
   Tr,
-  Th,
   Tbody,
   Td,
   Flex,
   Image,
   Text
 } from '@chakra-ui/react'
+import Thead from './Thead'
 import { observer } from 'mobx-react-lite'
-import { useUserStore } from '@/hooks/useUserList'
-import { COLORS } from '../../helpers/const'
-
-const Theader = [
-  {
-    id: 0,
-    label: 'ФИО',
-  },
-  {
-    id: 1,
-    label: 'Логин',
-  },
-  {
-    id: 2,
-    label: 'Адрес',
-  },
-  {
-    id: 3,
-    label: 'Телефон',
-  },
-  {
-    id: 4,
-    label: 'E-mail',
-  },
-]
+import { useUsersStore } from '@/hooks/useUsersList'
+import { COLORS, TABLE_HEADER } from '../../helpers/const'
 
 const Table = observer(() => {
-  const { userList, handleClick } = useUserStore()
+  const { userList, handleClick } = useUsersStore()
 
   return (
     <TableContainer borderRadius='6px'>
       <CTable size='sm'>
-        <Thead bg={COLORS.BG_TABLE_HEADER} borderBottom={COLORS.GRAY_300}>
-          <Tr>
-            {Theader.map(({ id, label }) => (
-              <Th key={id}>{label}</Th>
-            ))}
-          </Tr>
-        </Thead>
+        <Thead headers={TABLE_HEADER} />
         <Tbody onClick={handleClick} bgColor={COLORS.WHITE}>
           {userList?.map((el, i) => {
             return (
