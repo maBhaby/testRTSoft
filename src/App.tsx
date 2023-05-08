@@ -1,23 +1,16 @@
-import { useEffect } from 'react'
-import { api } from './api'
-import { Box } from "@chakra-ui/react"
+import { FC } from 'react'
 import { observer } from 'mobx-react-lite'
-import Table from './components/Table'
-import Header from "./components/Header"
+import { useDisplayType } from './hooks/useDisplayType'
+import Modal from './components/Modal'
+import Home from './page/Home'
 
-const App = observer(() => {
-  useEffect(() => {
-    api.getUsers()
-      .then((res) => {console.log('res', res)})
-  }, [])
-
+const App: FC = observer(() => {
+  const { displayType } = useDisplayType()
   return (
-    <Box p='32px' height='100vh' bgColor='gray.200'>
-      <Header />
-      <Box as="main">
-        <Table />
-      </Box>
-    </Box>
+    <>
+      <Modal />
+      <Home />
+    </>
   )
 })
 

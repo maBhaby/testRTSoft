@@ -12,7 +12,10 @@ export const COLORS = {
   GRAY_300: '#D1D5DB',
   BG_TABLE_HEADER: '#F3F4F6',
   WHITE: '#FFF',
-  BLUE: '#2563EB'
+  BLUE: '#2563EB',
+  GRAY_50: '#F9FAFB',
+  TRANPARENT: 'transparent',
+  GRAY_500:'#6B7280'
 }
 
 export const TABLE_HEADER = [
@@ -37,3 +40,13 @@ export const TABLE_HEADER = [
     label: 'E-mail',
   },
 ]
+
+export const DISPLAY_TYPE = {
+  CARD: 'card',
+  TABLE: 'table'
+}
+
+export const MODALS_TYPE = {
+  USER_DATA: 'userData',
+  EMPTY: 'empty'
+}

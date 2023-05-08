@@ -1,40 +1,28 @@
+import { FC } from 'react'
 import {
   TableContainer,
   Table as CTable,
-  Tr,
   Tbody,
-  Td,
-  Flex,
-  Image,
-  Text
 } from '@chakra-ui/react'
 import Thead from './Thead'
+import Trow from './Trow'
+import { IResult } from '@/Interface'
 import { observer } from 'mobx-react-lite'
-import { useUsersStore } from '@/hooks/useUsersList'
 import { COLORS, TABLE_HEADER } from '../../helpers/const'
 
-const Table = observer(() => {
-  const { userList, handleClick } = useUsersStore()
+interface ITable{
+  userList: IResult[]
+}
 
+const Table:FC<ITable> = observer(({userList}) => {
   return (
-    <TableContainer borderRadius='6px'>
+    <TableContainer border={`1px solid ${COLORS.BG}`} height='100%' borderRadius='6px' bgColor={COLORS.WHITE}>
       <CTable size='sm'>
         <Thead headers={TABLE_HEADER} />
-        <Tbody onClick={handleClick} bgColor={COLORS.WHITE}>
-          {userList?.map((el, i) => {
+        <Tbody>
+          {userList?.map((el, i) => {            
             return (
-              <Tr data-uuid={el.login.uuid} cursor='pointer' key={i}>
-                <Td>
-                  <Flex gap='8px' alignItems='center' >
-                    <Image borderRadius='full' src={el.picture.thumbnail} boxSize='32px' />
-                    <Text color={COLORS.BLUE}>{el.name.first} {el.name.last}</Text>
-                  </Flex>
-                </Td>
-                <Td>{el.login.username}</Td>
-                <Td>{el.location.city}, {el.location.state}</Td>
-                <Td>{el.phone}</Td>
-                <Td>{el.email}</Td>
-              </Tr>
+             <Trow key={i} userData={el} />
             )
           })}
         </Tbody>

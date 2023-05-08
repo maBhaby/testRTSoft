@@ -1,26 +1,23 @@
 import { IResult, IUsersListApi } from "../Interface";
 import { api } from "../api";
+import { RootStore } from "./Root";
 import { makeAutoObservable } from "mobx";
 
 export class UsersListStore {
   userList: IResult[]
+  rootStore: RootStore
 
-  constructor () {
+  constructor (rootStore: RootStore) {
     makeAutoObservable(this)
-    this.fetchUserList()
+    this.rootStore = rootStore
   }
 
   public fetchUserList = async () => {
-    try {
-      const results: IUsersListApi = await api.getUsers()
-      this.userList = results.results
-    } catch (error) {
-      
-    }
+    const results: IUsersListApi = await api.getUsers()
+    this.userList = results.results
   }
 
   public findUser = (uuid: string): IResult | undefined => {
-    console.log('first', this.userList.find(({login}) => login.uuid === uuid))
     return this.userList.find(({login}) => login.uuid === uuid)
   }
 }
